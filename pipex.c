@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:11:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/03/23 14:09:52 by sarif            ###   ########.fr       */
+/*   Updated: 2024/03/24 04:27:38 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void 	pipex(int infile, int outfile, char **av, char **env)
 	char *line = getlinepath(pathline,*commande);
 	char *line2 = getlinepath(pathline,*commande2);
 	pid_t pid;
+	pid_t pid2;
 	pipe(fd);
 	pid = fork();
 	if (pid == 0)
@@ -63,11 +64,21 @@ void 	pipex(int infile, int outfile, char **av, char **env)
 	}
 	else
 	{
-		waitpid(pid,0,0);
-		close(fd[1]);
-		dup2(fd[0],STDIN_FILENO);
-		dup2(outfile,STDOUT_FILENO);
-		execve(line2,commande2,env);
+		pid2 = fork();
+		if (pid == 0)
+		{
+			close(fd[1]);
+			dup2(fd[0],STDIN_FILENO);
+			dup2(outfile,STDOUT_FILENO);
+			execve(line2,commande2,env);
+		}
+		else
+		{
+			close(fd[0]);
+			close(fd[1]);
+			waitpid(pid,NULL,0);
+			waitpid(pid2,NULL,0);
+		}
 	}
 }
 int	main(int ac, char **av, char **env)
