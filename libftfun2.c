@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:37:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/03/23 13:37:45 by sarif            ###   ########.fr       */
+/*   Updated: 2024/03/26 00:29:37 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int	ft_strncmp(char *s1,char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	size_t	i;
 

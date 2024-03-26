@@ -1,0 +1,9 @@
+Makefile
+asd
+childes.c
+libftfun.c
+libftfun2.c
+libftfun3.c
+pipex
+pipex.c
+pipex.h

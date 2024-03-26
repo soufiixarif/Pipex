@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:09:33 by sarif             #+#    #+#             */
-/*   Updated: 2024/03/22 22:56:22 by sarif            ###   ########.fr       */
+/*   Updated: 2024/03/26 00:29:49 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ char	*ft_strdup(char *s1)
 	return (p);
 }
 
-char *ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
-	int i, j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (dest[i])
@@ -47,10 +48,11 @@ char *ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char *ft_strcpy(char *s1, char *s2)
+char	*ft_strcpy(char *s1, char *s2)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (s2[i])
 	{
 		s1[i] = s2[i];

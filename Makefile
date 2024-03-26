@@ -1,5 +1,5 @@
 NAME = pipex
-SRC = pipex.c libftfun.c libftfun2.c libftfun3.c
+SRC = pipex.c libftfun.c libftfun2.c libftfun3.c childes.c
 OBJ = $(SRC:.c=.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:37:48 by sarif             #+#    #+#             */
-/*   Updated: 2024/03/23 13:37:49 by sarif            ###   ########.fr       */
+/*   Updated: 2024/03/26 00:28:10 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,3 @@ char	**ft_split(char *s, char c)
 		return (0);
 	return (ft_allocstr(strings, s, c));
 }
-// #include <stdio.h>
-// int main ()
-// {
-// 	char *s = "heey how are you doin!";
-// 	int n = ft_countword(s,32);
-// 	char **str = ft_split(s,32);
-// 	int i = 0;
-// 	while (i < n)
-// 	{
-// 		printf("%s\n",str[i]);
-// 		i++;
-// 	}
-// }
