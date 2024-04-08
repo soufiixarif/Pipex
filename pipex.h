@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:11:40 by sarif             #+#    #+#             */
-/*   Updated: 2024/03/26 03:23:36 by sarif            ###   ########.fr       */
+/*   Updated: 2024/03/28 21:23:52 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ char	*ft_strcpy(char *s1, char *s2);
 void	childone(int *fd, int infile, char **av);
 void	childtwo(int *fd, int outfile, char **av);
 void	printerror(char *bash, char *commande);
+int	ft_2dfree(char **s);
 
 #endif
