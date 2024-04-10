@@ -1,0 +1,7 @@
+char	*getlinepath(char *path, char *commande)
+	char	**envpath;
+	char	*com;
+char	*ft_getenv(char *var)
+	char	*tmp;
+void	pipex(int infile, int outfile, char **av)
+int	main(int ac, char **av)

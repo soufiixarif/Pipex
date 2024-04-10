@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:11:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/03/28 21:46:15 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/08 22:04:56 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,12 @@ void	pipex(int infile, int outfile, char **av)
 		}
 	}
 }
-void f()
+
+void	f(void)
 {
 	system("leaks pipex");
 }
+
 int	main(int ac, char **av)
 {
 	int	infile;
@@ -98,6 +100,6 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		write(2,"Error: args error",18);
+		write(2, "Error: args error", 18);
 	}
 }

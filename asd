@@ -4,6 +4,7 @@ childes.c
 libftfun.c
 libftfun2.c
 libftfun3.c
+outifle
 pipex
 pipex.c
 pipex.h
