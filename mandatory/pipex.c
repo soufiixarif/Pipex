@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:11:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 22:04:56 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/28 14:36:10 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ char	*getlinepath(char *path, char *commande)
 	int		i;
 
 	i = 0;
+	if (ft_strchr(commande, '/') != NULL)
+		return (ft_strdup(commande));
 	envpath = ft_split(path, ':');
 	while (envpath[i])
 	{
 		com = ft_calloc(ft_strlen(envpath[i]) + ft_strlen(commande) + 2, 1);
+		if (!com)
+			return (NULL);
 		com = ft_strcpy(com, envpath[i]);
 		com = ft_strcat(com, "/");
 		com = ft_strcat(com, commande);
@@ -45,6 +49,7 @@ char	*ft_getenv(char *var)
 		tmp = ft_strdup(environ[i]);
 		if (ft_strncmp(var, environ[i], ft_strlen(var)) == 0)
 			return (tmp);
+		free(tmp);
 		i++;
 	}
 	return (NULL);
@@ -75,25 +80,21 @@ void	pipex(int infile, int outfile, char **av)
 	}
 }
 
-void	f(void)
-{
-	system("leaks pipex");
-}
-
 int	main(int ac, char **av)
 {
 	int	infile;
 	int	outfile;
 
-	// atexit(f);
 	if (!environ || !*environ)
 		return (0);
 	if (ac == 5)
 	{
 		infile = open(av[1], O_RDONLY);
+		if (infile == -1)
+			printfderror(av[0], av[1]);
 		outfile = open(av[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
-		if (infile < 0 || outfile < 0)
-			return (-1);
+		if (outfile == -1)
+			return (close(infile), 0);
 		pipex(infile, outfile, av);
 		close(infile);
 		close(outfile);

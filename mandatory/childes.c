@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 00:59:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 22:06:04 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/28 14:42:23 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ void	childone(int *fd, int infile, char **av)
 	char	*line;
 
 	commande = ft_split(av[2], ' ');
+	if (!commande)
+		return ;
 	pathline = ft_getenv("PATH=");
+	if (!pathline && !ft_2dfree(commande))
+		return ;
 	pathline += 5;
 	line = getlinepath(pathline, *commande);
 	if (!line)
@@ -32,10 +36,8 @@ void	childone(int *fd, int infile, char **av)
 	{
 		ft_2dfree(commande);
 		free(line);
-		// free(pathline);
 		perror("Error: ");
 	}
-
 }
 
 void	childtwo(int *fd, int outfile, char **av)
@@ -45,7 +47,11 @@ void	childtwo(int *fd, int outfile, char **av)
 	char	*line2;
 
 	commande2 = ft_split(av[3], ' ');
+	if (!commande2)
+		return ;
 	pathline = ft_getenv("PATH=");
+	if (!pathline && !ft_2dfree(commande2))
+		return ;
 	pathline += 5;
 	line2 = getlinepath(pathline, *commande2);
 	if (!line2)
@@ -58,18 +64,18 @@ void	childtwo(int *fd, int outfile, char **av)
 	{
 		ft_2dfree(commande2);
 		free(line2);
-		//free(pathline);
 		perror("Error: ");
 	}
 }
 
 void	printerror(char *bash, char *commande)
 {
-	write(1, bash, ft_strlen(bash));
-	write(1, ": ", 2);
-	write(1, commande, ft_strlen(commande));
-	write(1, ": ", 2);
-	write(1, "command not found\n", 19);
+	write(2, bash, ft_strlen(bash));
+	write(2, ": ", 2);
+	write(2, commande, ft_strlen(commande));
+	write(2, ": ", 2);
+	write(2, "command not found\n", 19);
+	exit(EXIT_FAILURE);
 }
 
 int	ft_2dfree(char **s)
@@ -86,4 +92,13 @@ int	ft_2dfree(char **s)
 	free(s);
 	s = NULL;
 	return (0);
+}
+
+void	printfderror(char *bash, char *infile)
+{
+	write(2, bash, ft_strlen(bash));
+	write(2, ": ", 2);
+	write(2, infile, ft_strlen(infile));
+	write(2, ": ", 2);
+	write(2, "permission denied or file not found\n", 36);
 }
