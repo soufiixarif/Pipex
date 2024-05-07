@@ -3,7 +3,8 @@ B_NAME = pipex_bonus
 SRC_D = mandatory
 B_SRC_D = bonus
 SRC = $(SRC_D)/pipex.c $(SRC_D)/libftfun.c $(SRC_D)/libftfun2.c $(SRC_D)/libftfun3.c $(SRC_D)/childes.c
-B_SRC = $(B_SRC_D)/pipex_bonus.c $(B_SRC_D)/libftfun_bonus.c $(B_SRC_D)/libftfun2_bonus.c $(B_SRC_D)/libftfun3_bonus.c $(B_SRC_D)/utils_bonus.c
+B_SRC = $(B_SRC_D)/pipex_bonus.c $(B_SRC_D)/libftfun_bonus.c $(B_SRC_D)/libftfun2_bonus.c $(B_SRC_D)/libftfun3_bonus.c\
+$(B_SRC_D)/utils_bonus.c $(B_SRC_D)/get_next_line.c $(B_SRC_D)/get_next_line_utils.c
 OBJ = $(SRC:.c=.o)
 B_OBJ = $(B_SRC:.c=.o)
 CC = cc
@@ -19,7 +20,7 @@ $(NAME): $(OBJ)
 $(SRC_D)/%.o: $(SRC_D)/%.c $(SRC_D)/pipex.h Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(B_SRC_D)/%.o: $(B_SRC_D)/%.c $(B_SRC_D)/pipex_bonus.h Makefile
+$(B_SRC_D)/%.o: $(B_SRC_D)/%.c $(B_SRC_D)/pipex_bonus.h $(B_SRC_D)/get_next_line.h Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:

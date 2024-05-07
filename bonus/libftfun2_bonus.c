@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:37:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 18:39:54 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/04 18:35:52 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	while (++i < len)
 		((unsigned char *)b)[i] = (unsigned char)c;
 	return (b);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 int	ft_strncmp(char *s1, char *s2, size_t n)

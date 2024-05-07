@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:36:51 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 18:38:35 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/04 18:31:43 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ char	*getlinepath(char *path, char *commande)
 	return (NULL);
 }
 
-char	*ft_getenv(char *var, char **env)
+char	*ft_getenv(char *var)
 {
 	char	*tmp;
 	int		i;
 
 	i = 0;
-	while (env[i])
+	while (environ[i])
 	{
-		tmp = ft_strdup(env[i]);
-		if (ft_strncmp(var, env[i], ft_strlen(var)) == 0)
+		tmp = ft_strdup(environ[i]);
+		if (ft_strncmp(var, environ[i], ft_strlen(var)) == 0)
 			return (tmp);
 		free(tmp);
 		i++;

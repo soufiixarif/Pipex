@@ -6,28 +6,11 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:09:33 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 18:39:59 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/04 18:36:02 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
-
-char	*ft_strdup(char *s1)
-{
-	char	*p;
-	int		i;
-	int		len;
-
-	i = -1;
-	len = ft_strlen((char *)s1);
-	p = malloc(len + 1);
-	if (!p)
-		return (NULL);
-	while (++i < len && s1[i])
-		*(p + i) = s1[i];
-	*(p + i) = 0;
-	return (p);
-}
 
 char	*ft_strcat(char *dest, char *src)
 {
