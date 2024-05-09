@@ -6,23 +6,11 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:36:51 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/08 23:25:01 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 17:39:34 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
-
-int	ft_argvcounter(char **av)
-{
-	int	c;
-
-	c = 0;
-	while (av[c])
-	{
-		c++;
-	}
-	return (c);
-}
 
 void	put_stderr(char *s)
 {
@@ -93,4 +81,13 @@ int	ft_2dfree(char **s)
 	free(s);
 	s = NULL;
 	return (0);
+}
+
+void	printfderror(char *bash, char *infile)
+{
+	write(2, bash, ft_strlen(bash));
+	write(2, ": ", 2);
+	write(2, infile, ft_strlen(infile));
+	write(2, ": ", 2);
+	write(2, "permission denied or file not found\n", 36);
 }

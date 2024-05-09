@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 00:59:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 14:42:23 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 16:52:47 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	childone(int *fd, int infile, char **av)
 	pathline = ft_getenv("PATH=");
 	if (!pathline && !ft_2dfree(commande))
 		return ;
-	pathline += 5;
-	line = getlinepath(pathline, *commande);
-	if (!line)
+	line = getlinepath(pathline + 5, *commande);
+	if (!line && !ft_2dfree(commande))
 		printerror(av[0], commande[0]);
 	close(fd[0]);
 	dup2(infile, STDIN_FILENO);
@@ -36,7 +35,9 @@ void	childone(int *fd, int infile, char **av)
 	{
 		ft_2dfree(commande);
 		free(line);
+		free(pathline);
 		perror("Error: ");
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -65,6 +66,7 @@ void	childtwo(int *fd, int outfile, char **av)
 		ft_2dfree(commande2);
 		free(line2);
 		perror("Error: ");
+		exit(EXIT_FAILURE);
 	}
 }
 

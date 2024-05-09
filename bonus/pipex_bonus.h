@@ -6,14 +6,13 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:15:22 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/09 14:44:06 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 17:40:20 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_BONUS_H
 # define PIPEX_BONUS_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -48,15 +47,13 @@ int		ft_strcmp(char *s1, char *s2);
 
 //pipex----------------
 void	pipex(t_data *d, char **av, int ac);
-int		ft_argvcounter(char **av);
 void	execute_cmd(char *commande);
 char	*ft_getenv(char *var);
 char	*getlinepath(char *path, char *commande);
 int		ft_2dfree(char **s);
 void	redirectpipes(t_data *d, int i, int ac);
 void	here_doc_handler(t_data *d, char **av, int ac);
-
-
-
+void	put_stderr(char *s);
+void	printfderror(char *bash, char *infile);
 
 #endif

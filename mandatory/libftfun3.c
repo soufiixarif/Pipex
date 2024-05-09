@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:09:33 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 14:17:26 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 15:55:20 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,13 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)(&s[i]));
 	}
 	return (NULL);
+}
+
+void	put_stderr(char *s)
+{
+	int	fd;
+
+	fd = 2;
+	while (*s)
+		(write(fd, s, 1), s++);
 }

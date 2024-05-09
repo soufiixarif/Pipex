@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:14:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/09 14:46:07 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 17:48:17 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	here_doc_handler(t_data *d, char **av, int ac)
 {
 	char	*line;
 
-	d->hrdc	= true;
+	d->hrdc = true;
 	pipe(d->fd);
 	while (1)
 	{
@@ -61,13 +61,19 @@ void	execute_cmd(char *commande)
 	char	*line;
 
 	cmd = ft_split(commande, ' ');
+	if (!cmd)
+		return ;
 	pathline = ft_getenv("PATH=");
-	pathline += 5;
-	line = getlinepath(pathline, *cmd);
+	if (!pathline && !ft_2dfree(cmd))
+		return ;
+	line = getlinepath(pathline + 5, *cmd);
+	if (!line && !ft_2dfree(cmd))
+		return (free(pathline));
 	if (execve(line, cmd, environ) == -1)
 	{
 		ft_2dfree(cmd);
 		free(line);
+		free(pathline);
 		perror("Error: ");
 		exit(1);
 	}
@@ -117,9 +123,10 @@ int	main(int ac, char **av)
 	{
 		d->infile = open(av[1], O_RDONLY);
 		if (d->infile == -1)
-			return (0); // print error
+			printfderror(av[0], av[1]);
 		pipex (d, av, ac);
 	}
+	free(d);
 	close(d->infile);
 	close(d->outfile);
 }

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:11:40 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 14:32:40 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 15:53:13 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void	printerror(char *bash, char *commande);
 int		ft_2dfree(char **s);
 char	*ft_getenv(char *var);
 void	printfderror(char *bash, char *infile);
+void	put_stderr(char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:11:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/28 14:36:10 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 16:55:48 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ char	*getlinepath(char *path, char *commande)
 		free(com);
 		i++;
 	}
+	put_stderr(commande);
+	put_stderr(" : commande not found\n");
+	exit(1);
 	return (NULL);
 }
 
