@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:14:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/05 03:07:07 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 14:46:07 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	here_doc_handler(t_data *d, char **av, int ac)
 	{
 		line = get_next_line(0);
 		(line != NULL) && (line[ft_strlen(line) - 1] = '\0');
-		if (!line || !strcmp(line, av[2]))
+		if (!line || !ft_strcmp(line, av[2]))
 		{
 			free (line);
 			break ;
@@ -69,6 +69,7 @@ void	execute_cmd(char *commande)
 		ft_2dfree(cmd);
 		free(line);
 		perror("Error: ");
+		exit(1);
 	}
 }
 

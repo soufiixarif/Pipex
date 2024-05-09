@@ -1,8 +1,8 @@
-#include <libc.h>
 
-int main()
-{
-    char *line = "sgfsqwghdfqwydfqwd\n";
-    write(1, line, strlen(line));
-    write(1, line, strlen(line));
+
+
+
+int main() {
+    ft_printf("lsvsvfbdf\n");
+    return 0;
 }

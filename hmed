@@ -1,36 +1,15 @@
-     1	xepip = EMAN$
-     2	sunob_xepip = EMAN_B$
-     3	yrotadnam = D_CRS$
-     4	sunob = D_CRS_B$
-     5	c.sedlihc/)D_CRS($ c.3nuftfbil/)D_CRS($ c.2nuftfbil/)D_CRS($ c.nuftfbil/)D_CRS($ c.xepip/)D_CRS($ = CRS$
-     6	\c.sunob_3nuftfbil/)D_CRS_B($ c.sunob_2nuftfbil/)D_CRS_B($ c.sunob_nuftfbil/)D_CRS_B($ c.sunob_xepip/)D_CRS_B($ = CRS_B$
-     7	c.slitu_enil_txen_teg/)D_CRS_B($ c.enil_txen_teg/)D_CRS_B($ c.sunob_slitu/)D_CRS_B($$
-     8	)o.=c.:CRS($ = JBO$
-     9	)o.=c.:CRS_B($ = JBO_B$
-    10	cc = CC$
-    11	rorreW- artxeW- llaW- = SGALF$
-      	$
-    12	)EMAN($ :lla$
-      	$
-      	$
-    13	)JBO($ :)EMAN($$
-    14	)EMAN($ o- )JBO($ )SGALF($ )CC($	$
-    15	)JBO($ fr- mr	$
-      	$
-    16	elifekaM h.xepip/)D_CRS($ c.%/)D_CRS($ :o.%/)D_CRS($$
-    17	@$ o- <$ c- )SGALF($ )CC($	$
-      	$
-    18	elifekaM h.enil_txen_teg/)D_CRS_B($ h.sunob_xepip/)D_CRS_B($ c.%/)D_CRS_B($ :o.%/)D_CRS_B($$
-    19	@$ o- <$ c- )SGALF($ )CC($	$
-      	$
-    20	:naelc$
-    21	)JBO_B($ )JBO($ f- mr	$
-      	$
-    22	naelc :naelcf$
-    23	)EMAN_B($ )EMAN($ f- mr	$
-      	$
-    24	lla naelcf :er$
-      	$
-    25	)JBO_B($ : sunob$
-    26	)EMAN_B($ o- )JBO_B($ )SGALF($ )CC($	$
-    27	)JBO_B($ fr- mr	$
+Makefile
+a.out
+bonus
+data
+hdcheck
+hdcheck2
+hdcheck3
+hdcheck4
+hmed
+mandatory
+pipes.c
+pipex
+pipex_bonus
+popo
+test.c

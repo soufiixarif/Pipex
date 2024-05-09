@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:36:51 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/04 18:31:43 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/08 23:25:01 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ int	ft_argvcounter(char **av)
 		c++;
 	}
 	return (c);
+}
+
+void	put_stderr(char *s)
+{
+	int	fd;
+
+	fd = 2;
+	while (*s)
+		(write(fd, s, 1), s++);
 }
 
 char	*getlinepath(char *path, char *commande)
@@ -47,6 +56,9 @@ char	*getlinepath(char *path, char *commande)
 		free(com);
 		i++;
 	}
+	put_stderr(commande);
+	put_stderr(" : commande not found\n");
+	exit(1);
 	return (NULL);
 }
 

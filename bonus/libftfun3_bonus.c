@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:09:33 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/04 18:36:02 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/09 14:43:38 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,16 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)(&s[i]));
 	}
 	return (NULL);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != 0 && s2[i] != 0)
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
