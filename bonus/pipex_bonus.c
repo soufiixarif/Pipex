@@ -6,12 +6,11 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:14:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/09 17:48:17 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/14 19:48:39 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
-#include <string.h>
 
 void	here_doc_handler(t_data *d, char **av, int ac)
 {
@@ -110,23 +109,17 @@ int	main(int ac, char **av)
 {
 	t_data	*d;
 
-	d = malloc(sizeof(t_data));
-	if (!d)
-		return (1);
-	d->hrdc = false;
-	d->outfile = open (av[ac - 1], O_CREAT | O_RDWR | O_TRUNC, 0644);
-	if (d->outfile == -1)
+	if (!environ || !*environ)
 		return (0);
-	if (!ft_strncmp(av[1], "here-doc", ft_strlen("here-doc")))
-		here_doc_handler(d, av, ac);
+	if (ac >= 5)
+	{
+		d = malloc(sizeof(t_data));
+		if (!d)
+			return (1);
+		if_heredoc_or_not(ac, av, d);
+	}
 	else
 	{
-		d->infile = open(av[1], O_RDONLY);
-		if (d->infile == -1)
-			printfderror(av[0], av[1]);
-		pipex (d, av, ac);
+		write(2, "Error: args error", 18);
 	}
-	free(d);
-	close(d->infile);
-	close(d->outfile);
 }

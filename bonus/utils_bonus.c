@@ -6,20 +6,11 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:36:51 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/09 17:39:34 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/14 19:46:52 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
-
-void	put_stderr(char *s)
-{
-	int	fd;
-
-	fd = 2;
-	while (*s)
-		(write(fd, s, 1), s++);
-}
 
 char	*getlinepath(char *path, char *commande)
 {
@@ -90,4 +81,24 @@ void	printfderror(char *bash, char *infile)
 	write(2, infile, ft_strlen(infile));
 	write(2, ": ", 2);
 	write(2, "permission denied or file not found\n", 36);
+}
+
+void	if_heredoc_or_not(int ac, char **av, t_data *d)
+{
+	d->hrdc = false;
+	d->outfile = open (av[ac - 1], O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (d->outfile == -1)
+		return ;
+	if (!ft_strncmp(av[1], "here-doc", ft_strlen("here-doc")))
+		here_doc_handler(d, av, ac);
+	else
+	{
+		d->infile = open(av[1], O_RDONLY);
+		if (d->infile == -1)
+			printfderror(av[0], av[1]);
+		pipex (d, av, ac);
+	}
+	free(d);
+	close(d->infile);
+	close(d->outfile);
 }

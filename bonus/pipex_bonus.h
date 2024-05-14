@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:15:22 by sarif             #+#    #+#             */
-/*   Updated: 2024/05/09 17:40:20 by sarif            ###   ########.fr       */
+/*   Updated: 2024/05/14 19:46:15 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void	redirectpipes(t_data *d, int i, int ac);
 void	here_doc_handler(t_data *d, char **av, int ac);
 void	put_stderr(char *s);
 void	printfderror(char *bash, char *infile);
+void	if_heredoc_or_not(int ac, char **av, t_data *d);
 
 #endif
